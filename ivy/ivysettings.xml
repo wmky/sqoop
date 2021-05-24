@@ -23,7 +23,7 @@ under the License.
   see http://www.jayasoft.org/ivy/doc/configuration
   -->
   <!-- you can override this property to use mirrors
-          http://repo1.maven.org/maven2/
+          https://repo1.maven.org/maven2/
           http://mirrors.dotsrc.org/maven2
           http://ftp.ggi-project.org/pub/packages/maven2
           http://mirrors.sunsite.dk/maven2
@@ -31,7 +31,7 @@ under the License.
           http://ibiblio.lsu.edu/main/pub/packages/maven2
           http://www.ibiblio.net/pub/packages/maven2
   -->
-  <property name="repo.maven.org" value="http://repo1.maven.org/maven2/"
+  <property name="repo.maven.org" value="https://repo1.maven.org/maven2/"
       override="false"/>
   <property name="snapshot.apache.org"
       value="https://repository.apache.org/content/repositories/snapshots/"
@@ -40,7 +40,7 @@ under the License.
       value="https://repository.cloudera.com/content/repositories/staging/"
       override="false"/>
   <property name="releases.cloudera.com"
-      value="https://repository.cloudera.com/artifactory/cdh-releases-rcs/"
+      value="https://repository.cloudera.com/artifactory/cloudera-repos/"
       override="false"/>
   <property name="snapshots.cloudera.com"
       value="https://repository.cloudera.com/artifactory/libs-snapshot-local/"
@@ -57,7 +57,10 @@ under the License.
 
   <resolvers>
     <!-- CDH build repo, the pattern attribute handles SNAPSHOT artifacts -->
-    <ibiblio name="reactor-repo" root="${reactor.repo}"
+      <ibiblio name="kunpeng-maven" root="${repo.kunpeng.maven}" pattern="${maven2.pattern.ext}" m2compatible="true" checksums=""/>
+      <ibiblio name="cloudera-public" root="${public.cloudera.com}" pattern="${maven2.pattern.ext}" m2compatible="true"/>
+      <ibiblio name="cloudera-cloudera-repos" root="${cloudera-repos.cloudera.com}" pattern="${maven2.pattern.ext}" m2compatible="true"/>
+      <ibiblio name="reactor-repo" root="${reactor.repo}"
              m2compatible="true"
              checkmodified="true"
              pattern="[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]"/>
@@ -83,6 +86,9 @@ under the License.
 
     <chain name="default" dual="true" checkmodified="true"
         changingPattern=".*SNAPSHOT">
+        <resolver ref="kunpeng-maven"/>
+        <resolver ref="cloudera-public"/>
+        <resolver ref="cloudera-cloudera-repos"/>
       <resolver ref="fs"/>
       <resolver ref="datanucleus"/>
       <resolver ref="cloudera-releases"/>
@@ -94,6 +100,9 @@ under the License.
     </chain>
 
     <chain name="internal" dual="true">
+        <resolver ref="kunpeng-maven"/>
+        <resolver ref="cloudera-public"/>
+        <resolver ref="cloudera-cloudera-repos"/>
       <resolver ref="reactor-repo"/>
       <resolver ref="fs"/>
       <resolver ref="datanucleus"/>

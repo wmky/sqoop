@@ -334,7 +334,7 @@
   <property name="mvn.repo" value="snapshots" />
   <property name="mvn.repo.id" value="cloudera.${mvn.repo}.repo" />
   <property name="mvn.deploy.url"
-      value="https://repository.cloudera.com/content/repositories/${mvn.repo}"/>
+      value="https://repository.cloudera.com/artifactory/cloudera-repos/"/>
   <property name="sqoop.pom" value="${mvn.build.dir}/sqoop.pom" />
   <property name="sqooptest.pom" value="${mvn.build.dir}/sqoop-test.pom" />
 
@@ -370,9 +370,9 @@
   <property name="ivysettings.xml" location="${ivy.dir}/ivysettings.xml"/>
   <property name="ivy.jar" location="${lib.dir}/ivy-${ivy.version}.jar"/>
   <property name="ivy_repo_url"
-  value="http://repo2.maven.org/maven2/org/apache/ivy/ivy/${ivy.version}/ivy-${ivy.version}.jar" />
+  value="https://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.version}/ivy-${ivy.version}.jar" />
   <property name="mvn_repo_url"
-  value="http://repo2.maven.org/maven2/org/apache/maven/maven-ant-tasks/${mvn.version}/maven-ant-tasks-${mvn.version}.jar"/>
+  value="https://repo1.maven.org/maven2/org/apache/maven/maven-ant-tasks/${mvn.version}/maven-ant-tasks-${mvn.version}.jar"/>
   <property name="mvn.jar"
       location="${build.dir}/maven-ant-tasks-${mvn.version}.jar" />
   <property name="build.ivy.dir" location="${build.dir}/ivy" />

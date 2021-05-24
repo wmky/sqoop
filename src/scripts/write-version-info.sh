@@ -26,14 +26,13 @@
 #
 # e.g., $ write-version-info.sh ./build/ 1.0.0
 
-buildroot=$1
-version=$2
-specifiedgithash=$3
+version=$1
+specifiedgithash=$2
 
-outputdir="${buildroot}/src/com/cloudera/sqoop"
+outputdir="/src/com/cloudera/sqoop"
 outputfile="${outputdir}/SqoopVersion.java"
 
-newoutputdir="${buildroot}/src/org/apache/sqoop"
+newoutputdir="src/org/apache/sqoop"
 newoutputfile="${newoutputdir}/SqoopVersion.java"
 
 signature=$specifiedgithash

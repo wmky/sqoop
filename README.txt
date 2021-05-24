@@ -44,3 +44,7 @@ See the COMPILING.txt document for for information.
 * Try running +asciidoc README.txt+
 * For more information about asciidoc, see http://www.methods.co.nz/asciidoc/
 
+
+_______________________________________________________________________________
+参考文章https://support.huaweicloud.com/prtg-cdh-kunpengbds/kunpengsqoopcdh5121_02_0010.html
+
